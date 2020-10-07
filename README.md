@@ -1,3 +1,3 @@
 mysql-replication
-start script:
+start script:	
 ./build.sh
