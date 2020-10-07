@@ -4,6 +4,8 @@ sudo chmod 777 -R ./slave/data/*
 sudo chmod 777 -R ./master/data/*
 rm -rf ./master/data/*
 rm -rf ./slave/data/*
+sudo chmod 644 -R ./slave/conf/*
+sudo chmod 644 -R ./master/conf/*
 docker-compose build
 docker-compose up -d
 until docker exec master sh -c 'export MYSQL_PWD=Babina_; mysql -u root -e ";"'
