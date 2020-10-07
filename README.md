@@ -1,34 +1,31 @@
-mysql-replication
+### Mysql-replication 
 
-start script:	
+# start script:	
 
 ./build.sh
 
-if mysql: [Warning] World-writable config file '/etc/mysql/conf.d/mysql.conf.cnf' is ignored.	
-
-change permissions to mysql.conf.cnf to 644
-
-how to check:
+# how to check:
 
 make change to master database
 
-example: 
+_example:_ 
 
-docker exec master sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'create table test_mysq(test_mysq int); insert into test_mysq values (38093), (2417648)'"
+**_docker exec master sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'create table test_mysq(test_mysq int); insert into test_mysq values (38093), (2417648)'"_**
 
 Chcek this changes in slave database
 
-exapmle:
+_exapmle:_
 
-docker exec slave sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'select * from test_mysq \G'"
+**_docker exec slave sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'select * from test_mysq \G'"_**
 
-If have something troubleshooting run docker-compose logs and run ./build.sh 
+# If have something troubleshooting run docker-compose logs and run ./build.sh 
+# if mysql: [Warning] World-writable config file '/etc/mysql/conf.d/mysql.conf.cnf' is ignored.	
+_change permissions to mysql.conf.cnf to 644 (master(slave)/conf)
 
+# check master db
 
-check master db
+**_docker exec master sh -c 'mysql -u root -pBabina_ -e "SHOW MASTER STATUS \G"'_**
 
-docker exec master sh -c 'mysql -u root -pBabina_ -e "SHOW MASTER STATUS \G"'
+# check slave db 
 
-check slave db 
-
-docker exec slave sh -c 'mysql -u root -pBabina_ -e "SHOW SLAVE STATUS \G"'
+**_docker exec slave sh -c 'mysql -u root -pBabina_ -e "SHOW SLAVE STATUS \G"'
