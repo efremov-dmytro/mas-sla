@@ -22,7 +22,7 @@ _exapmle:_
 _run docker-compose logs and run ./build.sh_
 
 _if mysql: [Warning] World-writable config file '/etc/mysql/conf.d/mysql.conf.cnf' is ignored._	
-_change permissions to mysql.conf.cnf to 644 (master(slave)/conf)_
+_change permissions to mysql.conf.cnf to 644 (master(slave)/conf)_ [UPD - fix this trouble]
 
 # check master db
 
