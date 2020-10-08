@@ -14,19 +14,35 @@ services:
     networks:
       - overlay
 
-  slave:
+  slave1:
     image: mysql:5.7
     env_file:
-      - ./slave/slave.env
-    container_name: "slave"
+      - ./slave1/slave.env
+    container_name: "slave1"
     restart: "no"
     ports:
       - 4406:3306
     depends_on:
       - master
     volumes:
-      - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
-      - ./slave/data:/var/lib/mysql
+      - ./slave1/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./slave1/data:/var/lib/mysql
+    networks:
+      - overlay
+
+  slave2:
+    image: mysql:5.7
+    env_file:
+      - ./slave2/slave.env
+    container_name: "slave2"
+    restart: "no"
+    ports:
+      - 5406:3306
+    depends_on:
+      - master
+    volumes:
+      - ./slave2/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./slave2/data:/var/lib/mysql
     networks:
       - overlay
 
