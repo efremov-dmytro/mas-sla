@@ -16,7 +16,6 @@ echo "Connection to DB MASTER"
 
 until docker exec master sh -c 'export MYSQL_PWD=Babina_; mysql -u root -h 127.0.0.1 -pBabina_ -e ";"'
 do
-    sleep 10
     echo "Waiting for _master database connection..."
     sleep 2
 done

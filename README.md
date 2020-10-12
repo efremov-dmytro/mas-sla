@@ -21,7 +21,7 @@ _exapmle:_
 **_docker exec slave2 sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'select * from test_mysq \G'"**
 
 # If have something troubleshooting
-_run docker-compose logs and run ./build.sh_
+_run docker-compose logs and rerun ./build.sh_
 
 _if mysql: [Warning] World-writable config file '/etc/mysql/conf.d/mysql.conf.cnf' is ignored._	
 _change permissions to mysql.conf.cnf to 644 (master(slave)/conf)_ [UPD - fix this trouble]
