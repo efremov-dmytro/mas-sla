@@ -33,6 +33,7 @@ _change permissions to mysql.conf.cnf to 644 (master(slave)/conf)_ [UPD - fix th
 # check slave db 
 
 **_docker exec slave1 sh -c 'mysql -u root -pBabina_ -e "SHOW SLAVE STATUS \G"'**
+
 **_docker exec slave2 sh -c 'mysql -u root -pBabina_ -e "SHOW SLAVE STATUS \G"'**
 
 # check slave SQL_Delay
