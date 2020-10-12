@@ -16,7 +16,9 @@ Chcek this changes in slave database
 
 _exapmle:_
 
-**_docker exec slave sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'select * from test_mysq \G'"**
+**_docker exec slave1 sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'select * from test_mysq \G'"**
+
+**_docker exec slave2 sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'select * from test_mysq \G'"**
 
 # If have something troubleshooting
 _run docker-compose logs and run ./build.sh_
@@ -30,4 +32,11 @@ _change permissions to mysql.conf.cnf to 644 (master(slave)/conf)_ [UPD - fix th
 
 # check slave db 
 
-**_docker exec slave sh -c 'mysql -u root -pBabina_ -e "SHOW SLAVE STATUS \G"'**
+**_docker exec slave1 sh -c 'mysql -u root -pBabina_ -e "SHOW SLAVE STATUS \G"'**
+**_docker exec slave2 sh -c 'mysql -u root -pBabina_ -e "SHOW SLAVE STATUS \G"'**
+
+# check slave SQL_Delay
+
+
+**docker exec slave1 sh -c "export MYSQL_PWD=Babina_; mysql -u root -e 'SHOW SLAVE STATUS \G'" | grep SQL_Delay**
+**docker exec slave2 sh -c "export MYSQL_PWD=Babina_; mysql -u root -e 'SHOW SLAVE STATUS \G'" | grep SQL_Delay**
