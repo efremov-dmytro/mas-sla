@@ -49,7 +49,7 @@ start_slave_cmd+='"'
 
 start_slave2_stmt="CHANGE MASTER TO MASTER_HOST='$(dip master)',MASTER_DELAY = 21600, MASTER_USER='mydb_slave_user',MASTER_PASSWORD='mydb_slave_pwd';START SLAVE;"
 start_slave2_cmd='export MYSQL_PWD=Babina_; mysql -u root -h 127.0.0.1 -pBabina_ -e "'
-start_slave2_cmd+="$start_slave_stmt"
+start_slave2_cmd+="$start_slave2_stmt"
 start_slave2_cmd+='"'
 
 
