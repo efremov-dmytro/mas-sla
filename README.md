@@ -9,6 +9,7 @@
 make change to master database
 
 _example:_ 
+_you can use script ./test/sh_
 
 **_docker exec master sh -c "export MYSQL_PWD=Babina_; mysql -u root mydb -e 'create table test_mysq(test_mysq int); insert into test_mysq values (38093), (2417648)'"**
 
