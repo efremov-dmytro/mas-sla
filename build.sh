@@ -42,7 +42,6 @@ do
 done
 #-----------------------------------------------------------------------------------------------------------------
 dip() {
-#     docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
     docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"
 }
 
